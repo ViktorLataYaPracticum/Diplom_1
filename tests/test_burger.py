@@ -48,3 +48,22 @@ def test_move_ingredient():
     burger.move_ingredient(0, 2)
 
     assert burger.ingredients == [ing2, ing3, ing1]
+
+# Тест метода get_price.
+def test_get_price():
+    burger = Burger()
+
+    bun = Mock()
+    bun.get_price.return_value = 100
+
+    ing1 = Mock()
+    ing1.get_price.return_value = 50
+
+    ing2 = Mock()
+    ing2.get_price.return_value = 150
+
+    burger.set_buns(bun)
+    burger.add_ingredient(ing1)
+    burger.add_ingredient(ing2)
+
+    assert burger.get_price() == 300
