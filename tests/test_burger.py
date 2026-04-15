@@ -32,3 +32,19 @@ def test_remove_ingredient():
     burger.remove_ingredient(0)
 
     assert len(burger.ingredients) == 0    
+
+# Тест метода move_ingredient.
+def test_move_ingredient():
+    burger = Burger()
+
+    ing1 = Mock()
+    ing2 = Mock()
+    ing3 = Mock()
+
+    burger.add_ingredient(ing1)
+    burger.add_ingredient(ing2)
+    burger.add_ingredient(ing3)
+
+    burger.move_ingredient(0, 2)
+
+    assert burger.ingredients == [ing2, ing3, ing1]
