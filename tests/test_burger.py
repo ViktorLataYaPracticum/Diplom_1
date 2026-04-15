@@ -19,3 +19,16 @@ def test_add_ingredient():
     burger.add_ingredient(ingredient)
 
     assert ingredient in burger.ingredients
+
+# Тест метода remove_ingredient.
+def test_remove_ingredient():
+    burger = Burger()
+    ingredient = Mock()
+
+    # убедимся что счписок точно пустой
+    assert len(burger.ingredients) == 0  
+
+    burger.add_ingredient(ingredient)
+    burger.remove_ingredient(0)
+
+    assert len(burger.ingredients) == 0    
