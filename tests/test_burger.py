@@ -10,3 +10,12 @@ def test_set_buns():
     burger.set_buns(bun)
 
     assert burger.bun == bun
+
+# Тест метода add_ingredient. 
+def test_add_ingredient():
+    burger = Burger()
+    ingredient = Mock()
+
+    burger.add_ingredient(ingredient)
+
+    assert ingredient in burger.ingredients
