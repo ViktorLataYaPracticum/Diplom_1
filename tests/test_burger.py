@@ -66,4 +66,16 @@ def test_get_price():
     burger.add_ingredient(ing1)
     burger.add_ingredient(ing2)
 
-    assert burger.get_price() == 300
+    expected_price = 100 * 2 + 50 + 150
+
+    assert burger.get_price() == expected_price
+
+def test_get_price_only_bun():
+    burger = Burger()
+
+    bun = Mock()
+    bun.get_price.return_value = 100
+
+    burger.set_buns(bun)
+
+    assert burger.get_price() == 200
